@@ -282,7 +282,6 @@ class CodeIntelHandler(object):
         sublime.set_timeout(_set_status_message, 0)
 
     def set_call_tip_info(self, buf, calltip, explicit, trg):
-        print(calltip)
         def _set_call_tip_info():
             view = self.view
             if not view:
