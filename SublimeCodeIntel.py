@@ -282,6 +282,7 @@ class CodeIntelHandler(object):
         sublime.set_timeout(_set_status_message, 0)
 
     def set_call_tip_info(self, buf, calltip, explicit, trg):
+        print(calltip)
         def _set_call_tip_info():
             view = self.view
             if not view:
@@ -354,7 +355,7 @@ class CodeIntelHandler(object):
                     if arguments and snippet:
                         snippet = initial_separator + snippet
             css = (
-                "html {background-color: #2D2D2D; color: #999999;}" +
+                "html {background-color: #1e1e1e; color: #999999;}" +
                 "body {font-size: 14px; font-family: Inconsolata; }" +
                 "h1 {font-size: 15px; color: white; }" +
                 "a {color: #6699cc; }" +
@@ -366,11 +367,13 @@ class CodeIntelHandler(object):
             )
 
             # Wrap lines that are too long:
-            wrapper = textwrap.TextWrapper(width=120, break_on_hyphens=False, break_long_words=False)
+            # wrapper = textwrap.TextWrapper(width=120, break_on_hyphens=False, break_long_words=False)
             measured_tips = [tip0]
-            for t in tip_info[1:]:
-                measured_tips.extend(wrapper.wrap(t))
+            # for t in tip_info[1:]:
+                # measured_tips.extend(wrapper.wrap(t))
 
+            # Avoid the autoremove of dockblock `\n`
+            measured_tips.extend(tip_info[1:])
             if hasattr(view, 'show_popup'):
                 def insert_snippet(href):
                     view.run_command('insert_snippet', {'contents': snippet})
