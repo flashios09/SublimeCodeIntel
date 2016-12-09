@@ -282,6 +282,7 @@ class CodeIntelHandler(object):
         sublime.set_timeout(_set_status_message, 0)
 
     def set_call_tip_info(self, buf, calltip, explicit, trg):
+        print(calltip)
         def _set_call_tip_info():
             view = self.view
             if not view:
@@ -358,6 +359,7 @@ class CodeIntelHandler(object):
                 "body {font-size: 14px; font-family: Inconsolata; }" +
                 "h1 {font-size: 15px; color: white; }" +
                 "a {color: #6699cc; }" +
+                "var.classname {color: #ffca5c;}" +
                 "var.function_name {color: #5a9acc;}" +
                 "var.arg_type {color: #cf9ccd;}" +
                 "var.arg_value {color: #f58b50;}" +
