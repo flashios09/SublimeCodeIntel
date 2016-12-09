@@ -325,7 +325,7 @@ class CodeIntelHandler(object):
                             tvar = var
                             if sep:
                                 arg = tvar.split()
-                                if arg[1]:
+                                if 1 < len(arg):
                                     arg_type = arg[0]
                                     arg_value = arg[1]
                                     tvar = "<var class='arg_type'>%s</var> <var class='arg_value'>%s</var> <var class='equal_sign'>=</var> %s" % (arg_type, arg_value, default)
@@ -333,7 +333,7 @@ class CodeIntelHandler(object):
                                     tvar = "<var class='arg_value'>%s</var> <var class='equal_sign'>=</var> %s" % (tvar, default)
                             else:
                                 arg = tvar.split()
-                                if arg[1]:
+                                if 1 < len(arg):
                                     arg_type = arg[0]
                                     arg_value = arg[1]
                                     tvar = "<var class='arg_type'>%s</var> <var class='arg_value'>%s</var>" % (arg_type, arg_value)
